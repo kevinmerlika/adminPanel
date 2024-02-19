@@ -15,7 +15,7 @@ export default function RootLayout({
     // Initialize language state with the value from local storage, or default to 'fr'
     const [language, setLanguage] = useState(() => {
       const storedLanguage = localStorage.getItem('language');
-      return storedLanguage ? storedLanguage : 'fr';
+      return storedLanguage ? storedLanguage : 'en';
     });
   
     // Update local storage when language changes
@@ -31,7 +31,7 @@ export default function RootLayout({
     <Context.Provider value={value}>
     <html lang={language}>
       <body>
-      <Navbar />
+      <Navbar locale = {language} />
         {children}</body>
     </html>
     </Context.Provider>

@@ -1,0 +1,71 @@
+.modal-container {
+    position: fixed;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 500px;
+    max-height: 500px;
+    padding-top: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background overlay */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s; /* Smooth transition for opacity */
+}
+
+.modal-container.show {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s; 
+    transition: all 0.3;/* Delay the transition to allow the modal to fade in */
+}
+
+.modal-dialog {
+    background-color: rgb(234, 234, 234);
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for opacity and scale */
+}
+
+.modal-container.show .modal-dialog {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Close button style */
+.close-button {
+    font-size: 1.5rem;
+    color: #000; /* Adjust the color as needed */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.close-button:hover {
+    color: #ff0000; /* Red color on hover */
+}
+
+/* Modal header style */
+.modal-header {
+    border-bottom: none; /* Remove border bottom to make it look like the button is part of the header */
+}
+
+/* Modal body and footer styles */
+.modal-body,
+.modal-footer {
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+}
+
+.modal-container.show .modal-body,
+.modal-container.show .modal-footer {
+    opacity: 1;
+}

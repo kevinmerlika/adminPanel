@@ -1,0 +1,56 @@
+.order-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .order-card form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .order-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .order-details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .order-info,
+  .shipping-address {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .order-info p,
+  .shipping-address p {
+    margin: 5px 0;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #000000;
+  }
+  

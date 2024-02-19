@@ -1,6 +1,8 @@
 .navbar{
     position: sticky;
+    display: flex;
     top: 0;
+    padding-left: 0px !important;
     left: 0;
     right: 0;
     background-color: #282634;
@@ -9,8 +11,19 @@
     z-index: 1;
 
 
+    &_burger{
+        display: flex;  
+    
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+
+    }
+
+
     &__list{
         display: flex;
+        position: relative;
+        white-space: nowrap;
         color: #DCDCDC;
         padding-left: 0;
         padding-top: 10px;
@@ -23,20 +36,28 @@
     
         color: rgb(208, 208, 208);
         white-space: nowrap;
+        text-decoration: none;
         font-family: 'Questrial', sans-serif;
         transition: all 0.3s ease-in-out;
 
+
         &--active{
           
-        color: #ffffff;
-        text-shadow: 0px 0px 1px #ffffff;
+        color: #ff0000;
         white-space: nowrap;
         font-weight: 600;
         font-family: 'Questrial', sans-serif;
         transition: all 0.3s ease-in-out;
         
         }
+
+        &:hover{
+            color: red;
+        }
     }
+
+    
+    
 
 }
 

@@ -1,0 +1,45 @@
+.cardcontainer {
+    display: flex;
+    justify-content: start; /* Center the cards horizontally */
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap; /* Wrap the cards onto multiple lines */
+    padding: 20px;
+    gap: 5%;
+    max-width: 100%; /* Adjust as needed */
+    justify-content: center; /* Center the cards horizontally */
+}
+
+.plus-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000000; /* or any other color you prefer */
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; /* Smooth transition for opacity and scale */
+
+  }
+  
+  .plus-button:hover {
+    background-color: #ffffff; /* or any other color you prefer */
+    color: #000000;
+    font-size: 36px;
+    transition: all 0.3s ease; /* Smooth transition for opacity and scale */
+
+  }
+
+  
+  
+  

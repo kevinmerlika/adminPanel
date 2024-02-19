@@ -1,0 +1,77 @@
+@import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
+
+.card {
+  display: flex;
+  background-color: rgb(179, 179, 179);
+  border-radius: 20px;
+  overflow: hidden;
+  justify-content: center;
+  padding: 0; /* Adjusted padding */
+  cursor: pointer;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.1); /* Smaller box shadow */
+  transition: box-shadow 0.3s ease-in-out;
+  width: 200px; /* Adjusted width */
+  height: 300px; /* Adjusted height */
+
+  &__link-container{
+    height: auto;
+    width: 100%;
+    background-color: rgba(37, 37, 37, 0.774);
+  }
+  
+  &__link{
+    min-height: 30px;
+    min-width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+    color: white;
+
+  }
+}
+
+.cardcontainer{
+    padding: 0 !important;
+}
+
+.content {
+    display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Smaller box shadow */
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .content {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  display: flex;
+  flex-direction: column;
+
+  row-gap: 10px;
+  position: absolute;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: rgb(221, 221, 221);
+
+  color: #000000;
+  text-align: center;
+  font-size: 10px; /* Adjusted font size */
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.back {
+  background: #000000;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
