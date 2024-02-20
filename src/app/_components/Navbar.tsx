@@ -1,7 +1,7 @@
 // Navbar.tsx
 "use client"
 import React, {useState, useEffect} from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTranslation } from 'next-i18next'; 
 import './Navbar.scss';
 import Child from '../child';
@@ -21,8 +21,12 @@ interface NavbarProps {
 
   const Navbar: React.FC<NavbarProps> = ({locale}) => {
     const router = usePathname();
+    const routerto = useRouter();
     const [navbarItems, setNavbarItems] = useState<NavbarItem[]>([]);
     const { t } = useTranslation(); // Initialize the useTranslation hook
+
+    const [searchQuery, setSearchQuery] = useState('');
+    const [suggestions, setSuggestions] = useState<any[]>([]);
 
 
     console.log(locale);
@@ -59,20 +63,67 @@ interface NavbarProps {
         fetchNavbarItems();
       }, [locale]); // Fetch navbar items whenever locale changes
       
+
+      // Function to handle search query change
+    const handleSearchChange = (event: any) => {
+        const query = event.target.value;
+        setSearchQuery(query);
+        // Fetch suggestions based on the query
+        fetchSuggestions(query);
+    };
+
+     // Function to fetch suggestions based on the query
+     const fetchSuggestions = async (query: String) => {
+        // Perform API call to fetch suggestions based on the query
+        // For example:
+        // const response = await fetch(`/api/suggestions?query=${query}`);
+        // const data = await response.json();
+        // setSuggestions(data.suggestions);
+        // Dummy example:
+        const dummySuggestions = navbarItems
+        .filter(item => item.label.toLowerCase().includes(query.toLowerCase()))
+        .map(item => item.label); // Extract label property
+    setSuggestions(dummySuggestions);
+        setSuggestions(dummySuggestions);
+    };
+
+    const handleNavigation = (item: String) => {
+        routerto.push(`/${item.toLowerCase()}`);
+        setSearchQuery('')
+    };
+
     return (
         <div className='navbar container col-12'>
-            <div className='navbar_burger col-4'>
+            <div className='navbar_burger col-1'>
             <Cart locale={locale} />
             </div>
-            <div className='navbar__list col-sm-4'>
-                <ul className='navbar__list col-11'>
+            <div className='navbar__list col-3'>
+                <input className='navbar__search col-12'
+                    type="text"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                />
+                {/* Display suggestions */}
+                {searchQuery && suggestions.length > 0 && (
+                    <ul className="dropdown">
+                        {suggestions.map((item, index) => (
+                            <li key={index} onClick={() => handleNavigation(item)}>
+                            <a href={`/${item.toLowerCase()}`}>{`/${item}`}</a>
+                        </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+            <div className='navbar__list col-sm-8'>
+                <ul className='navbar__list col-7'>
                     {navbarItems.map(item => (
                         <li key={item.id} className={ router === item.url ? 'navbar__list-items--active' : 'navbar__list-items'}>
                             <a className='navbar__list-items' href={item.url}>{t(item.label)}</a>
                         </li>
                     ))}
                 </ul>
-                <div className='navbar__list col-sm-4'>
+                <div className='navbar__list col-sm-3'>
                 <Child />
                 </div>
             </div>

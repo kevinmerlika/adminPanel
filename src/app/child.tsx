@@ -13,7 +13,7 @@ export default function Child() {
     };
 
     return (
-        <main className="container col-2">
+        <main className="container col-12">
             <div>
                 <label htmlFor="language-select">Select Language:</label>
                 <select id="language-select" value={language} onChange={handleChangeLanguage}>
